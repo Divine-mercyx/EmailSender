@@ -19,6 +19,9 @@ public class UserService {
     @Autowired
     private EmailDetailRepository emailDetailRepository;
 
+    @Autowired
+    private EmailService emailService;
+
     public User registerUser(User user) {
         hashPassword(user);
         return userRepository.save(user);
@@ -36,7 +39,9 @@ public class UserService {
     }
 
     public EmailDetail sendMail(EmailDetail emailDetail) {
-        return emailDetailRepository.save(emailDetail);
+        EmailDetail savedEmailDetail = emailDetailRepository.save(emailDetail);
+        emailService.sendMail(emailDetail);
+        return savedEmailDetail;
     }
 
     public void deleteAllUsers() {

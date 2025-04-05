@@ -64,7 +64,7 @@ class UserServiceTest {
         emailDetail.setSubject("Test Subject");
         emailDetail.setBody("Test Body");
         emailDetail.setUser(savedUser);
-        emailDetail.setRecipient("test@test.com");
+        emailDetail.setRecipient("divineObinali9@gmail.com");
         EmailDetail savedEmailDetail = userService.sendMail(emailDetail);
         assertNotNull(savedEmailDetail);
         assertEquals(savedEmailDetail.getSubject(), emailDetail.getSubject());
